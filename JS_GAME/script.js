@@ -261,6 +261,10 @@ let appData = {
     },
     chooseIncome: function() {
         let items = prompt("Что принесет дополнительный доход?(Перечислите через запятую)", "");
+
+        while( (typeof(items)) !== "string" || items == null || items == " " ){
+        items = prompt("Что принесет дополнительный доход?(Перечислите через запятую)", "");
+        }
         appData.income = items.split(', ');
         appData.income.push(prompt("Может что-то еще?"));
         appData.income.sort();
